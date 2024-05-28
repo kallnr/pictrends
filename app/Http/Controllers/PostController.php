@@ -94,8 +94,9 @@ class PostController extends Controller
         $data = [
             'detailfoto' => Foto::with(['user', 'kategori'])->where('id', $id)->first(),
             'datapic' => Foto::all(),
-            'dataalbum' => Album::where('users_id', auth()->user()->id),
+            'dataalbum' => Album::where('users_id', auth()->user()->id)->get(),
             'datatag' => Kategori::all(),
+            'addalbum' => Foto::with('album')->where('id',$id)->first(),
             'post' => Foto::find($id)
         ];
 

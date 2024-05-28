@@ -3,7 +3,7 @@
         <div class="flex w-full items-center justify-center px-4 lg:justify-around">
             <div class="flex shrink-0">
                 <a href="/post">
-                    <h2 class="font-poppins text-utama text-[20px] font-bold hidden lg:block ">pictrends</h2>
+                    <h2 class="font-poppins text-slate-800 text-[20px] font-bold hidden lg:block ">Snapdrow</h2>
                 </a>
             </div>
             {{-- <div class=" hidden lg:block">
@@ -19,11 +19,11 @@
                     </li>
                 </ul>
             </div> --}}
-            <div class="">
+            <div class="mt-2">
                 <div class="">
                     <form action="{{ route('post') }}" method="GET">
-                        <input type="text" name="search"
-                            class="lg:w-[400px] w-[370px] mx-auto px-4 py-1 ml-10 rounded-full border bg-slate-200  dark:text-black"
+                        <input type="text" name="search" id="search"
+                            class="lg:w-[400px] w-[370px] mx-auto px-4 py-1 ml-10 rounded-full border border-slate-900 bg-putih  dark:text-black"
                             placeholder="Search..." value="{{ request('search') }}">
                         <div class="absolute  lg:ml-[360px] ml-[330px] mt-[-32px] ">
                             <button type="submit" class="w-7 h-7 rounded-full flex justify-center items-center">
@@ -177,7 +177,7 @@
                     </button>
                     <div class="hidden lg:block">
                         <a href="/post/create"
-                            class="bg-utama flex justify-center items-center w-[40px] h-[26px] rounded-md">
+                            class="bg-gray-500 flex justify-center items-center w-[26px] h-[26px] rounded-md">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                 class="text-putih bi bi-plus" viewBox="0 0 16 16">
                                 <path
@@ -215,7 +215,7 @@
                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
                     </li>
                     <li>
-                        <a href="/settings"
+                        <a href="{{route('settings.index')}}"
                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
                     </li>
                 </ul>
@@ -232,10 +232,10 @@
                 <li><a href="/post" class="">
                         <i class=" bi bi-house-door-fill"style="font-size: 25px;"></i>
                     </a></li>
-                <li><a href="" class="">
+                <li><a href="/post" for="search" class="" >
                         <i class="bi bi-search"style="font-size: 25px;"></i>
                     </a></li>
-                <li><a href="/post/create" name="search"
+                <li><a href="/post/create"
                         class="w-[50px] h-[40px] bg-utama/70 rounded-md flex justify-center items-center">
                         <i class="text-putih bi bi-plus"style="font-size: 30px;"></i>
                     </a></li>

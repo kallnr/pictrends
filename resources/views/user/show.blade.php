@@ -1,10 +1,48 @@
 @extends('layouts.master')
 @section('title', 'Other User')
 @section('content')
-    <section class="hidden lg:block mt-[100px]">
-        <div class="mt-[150px]"></div>
+    <section class="mx-auto mt-[50px] lg:mt-[100px]">
+        <div class=" hidden lg:block mt-[150px]"></div>
         <div
             class=" mt-[40px] w-full max-w-screen-md mx-auto bg-putih bord rounded-lg dark:bg-slate-800 dark:border-gray-700 ">
+            <div class=" lg:block flex justify-end px-4 pt-4">
+                <button id="dropdownButton" data-dropdown-toggle="dropdown"
+                    class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5"
+                    type="button">
+                    <span class="sr-only">Open dropdown</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                        viewBox="0 0 16 3">
+                        <path
+                            d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" />
+                    </svg>
+                </button>
+                <!-- Dropdown menu -->
+                <div id="dropdown"
+                    class="z-10 hidden text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 ">
+                    <ul class="py-2" aria-labelledby="dropdownButton">
+                        <li class="px-3 mt-2">
+                            <div class="flex flex-col">
+                                <h2 class="font-bold text-[16px]">Account</h2>
+                                <div>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">{{ $dataprofile->email }}</a>
+                                </div>
+                                <hr>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="/editakun"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Edit
+                                account</a>
+                        </li>
+                        <li>
+                            <a href="/logout"
+                                class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
+                                out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
             <div class="flex flex-col items-center pb-10">
 
@@ -119,7 +157,8 @@
                                                 <div
                                                     class="bg-slate-300 w-7 h-7 rounded-full flex justify-center items-center">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20"
-                                                        fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                                        fill="currentColor" class="bi bi-person-fill"
+                                                        viewBox="0 0 16 16">
                                                         <path
                                                             d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                                                     </svg>
@@ -177,103 +216,7 @@
             </ul>
         </div>
     </section>
-    <section class=" lg:hidden mx-auto mt-[50px]">
 
-
-
-        <div class="w-full max-w-sm bg-putih   ">
-            <div class="flex justify-end px-4 pt-4">
-                <button id="dropdownButton" data-dropdown-toggle="dropdown"
-                    class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5"
-                    type="button">
-                    <span class="sr-only">Open dropdown</span>
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                        viewBox="0 0 16 3">
-                        <path
-                            d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" />
-                    </svg>
-                </button>
-                <!-- Dropdown menu -->
-                <div id="dropdown"
-                    class="z-10 hidden text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 ">
-                    <ul class="py-2" aria-labelledby="dropdownButton">
-                        <li class="px-3 mt-2">
-                            <div class="flex flex-col">
-                                <h2 class="font-bold text-[16px]">Account</h2>
-                                <div>
-                                    <a href="#"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">{{ $dataprofile->email }}</a>
-                                </div>
-                                <hr>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="/editakun"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Edit
-                                account</a>
-                        </li>
-                        <li>
-                            <a href="/logout"
-                                class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-                                out</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="flex flex-col items-center pb-10">
-                <button type="button" class="bg-slate-500 rounded-full w-24 h-24 mb-3 bg-cover"
-                    style="background-image: url('/profile/{{ $dataprofile->profile }}');">
-                    {{-- <svg
-                        xmlns="http://www.w3.org/2000/svg" width="96" height="122" fill="currentColor"
-                        class=" text-putih bi bi-person-fill" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                    </svg><img src="/profile/{{ $dataprofile->profile }}" alt=""
-                        class="w-24 rounded-full absolute mt-[-122px]"> --}}
-                </button>
-                <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{ $dataprofile->name }}</h5>
-                <span class="text-sm text-gray-500 dark:text-gray-400">{{ $dataprofile->bio }}</span>
-                <div class="flex mt-4 md:mt-6">
-                    @if (Auth::id())
-                        <a href="/user/create"
-                            class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-putih bg-utama border border-gray-300 rounded-lg hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700 ms-3">
-                            Follow</a>
-                    @else
-                        <a href="/user/create"
-                            class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-putih border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700 ms-3">Edit
-                            Profile</a>
-                    @endif
-                    <a href="#"
-                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-putihborder border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700 ms-3">About</a>
-                </div>
-            </div>
-        </div>
-        <div class="mb-4  border-gray-200 dark:border-gray-700 mx-4 sm:pl-[40px]">
-            <ul class="flex flex-wrap  text-sm font-medium text-center justify-center lg:justify-normal md:justify-normal sm:pl-[260px] sm:justify-normal"
-                id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
-                <li class="" role="presentation">
-                    <button class="inline-block p-4 border-b-2 rounded-t-lg" id="unggahan-tab"
-                        data-tabs-target="#unggahan" type="button" role="tab" aria-controls="unggahan"
-                        aria-selected="false">Post</button>
-                </li>
-                <li class="" role="presentation">
-                    @if (auth()->user()->id)
-                    @else
-                        <button
-                            class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                            id="album-tab" data-tabs-target="#album" type="button" role="tab"
-                            aria-controls="album" aria-selected="false">Album</button>
-                    @endif
-                </li>
-                <li class="" role="presentation">
-                    <button
-                        class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                        id="liked-tab" data-tabs-target="#liked" type="button" role="tab" aria-controls="liked"
-                        aria-selected="false">Favorite</button>
-                </li>
-            </ul>
-        </div>
-
-    </section>
     <div id="default-tab-content">
         <!-- unggahan -->
         <div class="hidden p-4 rounded-lg bg-putih mb-14 dark:bg-slate-800" id="unggahan" role="tabpanel"
@@ -300,15 +243,7 @@
                                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Save
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="/editakun"
-                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Edit
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/logout"
-                                            class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
-                                    </li>
+                                   
                                 </ul>
                             </div>
                         </div>

@@ -72,8 +72,9 @@ class AlbumController extends Controller
     {
         //
         $dataalbum = Foto::with('album')->where('album_id', $id)->latest()->get();
+        $album = Album::find($id);
 
-        return view('album.show', compact('dataalbum'));
+        return view('album.show', compact('dataalbum','album'));
     }
 
     /**
@@ -89,7 +90,32 @@ class AlbumController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
+        // Validasi data yang dikirim melalui request
+    $request->validate([
+        'album' => 'required|string', // Atur aturan validasi sesuai kebutuhan Anda
+    ]);
+
+    // Cari record dengan ID yang sesuai
+    $record = Foto::find($id);
+
+    // Lakukan pembaruan pada kolom album
+    $record->update([
+        'album_id' => $request->album,
+        // tambahkan kolom lain yang ingin Anda update
+    ]);
+
+    // Redirect ke halaman yang sesuai atau kirimkan respons JSON sesuai kebutuhan Anda
+    return back();
+    }
+    public function removeFromAlbum(string $id)
+    {
+        $post = Foto::findOrFail($id);
+
+        // Hapus kolom album_id (set menjadi null)
+        $post->update(['album_id' => null]);
+
+        return redirect()->back()->with('success', 'Post berhasil dihapus dari album');
     }
 
     /**

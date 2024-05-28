@@ -21,13 +21,13 @@
                         class="bg-putih text-slate-800  dark:bg-slate-600 dark:text-slate-300 rounded-[23px]  lg:shadow-md lg:border  ">
                         <div class="flex flex-col lg:p-3  justify-center">
                             <div class="flex justify-center items-center flex-col p-3" x-data="picturePreview()">
-                                <div class="w-[120px] h-[120px] rounded-full bg-gray-500" ><svg
+                                <div class="w-[120px] h-[120px] rounded-full bg-gray-500"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="120" height="150" fill="currentColor"
                                         class=" text-putih bi bi-person-fill" viewBox="0 0 16 16">
                                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                                     </svg>
                                     <img id="preview" src="/profile/{{ old('profile', Auth::User()->profile) }}"
-                                        alt="" class=" W-[120px] h-[120px] absolute mt-[-150px] rounded-full">
+                                        alt="" class=" w-[120px] h-[120px] absolute mt-[-150px] rounded-full">
                                 </div>
                                 <div @click=" document.getElementById( 'input-file' ).cilck "
                                     class="absolute mt-[90px] ml-[70px]">
@@ -85,6 +85,16 @@
                                     <div class="flex flex-col">
                                         <label for="bio" class="text-[16px] font-semibold ml-1">Bio</label>
                                         <input type="text" value=" {{ $dataprofile->bio }}" name="bio" id="bio"
+                                            class="px-2 font-normal rounded-md dark:bg-slate-800 dark:border-blue-700 border-gray-300 ">
+
+                                        </input>
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <div class="flex flex-col">
+                                        <label for="alamat" class="text-[16px] font-semibold ml-1">Places lived</label>
+                                        <input type="text" value=" {{ $dataprofile->alamat }}" name="alamat"
+                                            id="bio"
                                             class="px-2 font-normal rounded-md dark:bg-slate-800 dark:border-blue-700 border-gray-300 ">
 
                                         </input>

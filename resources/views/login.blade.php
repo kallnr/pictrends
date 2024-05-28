@@ -23,11 +23,11 @@
         <form action="/logined" method="POST">
             @csrf
             <section class="mt-70">
-                <div class="max-w-[346px] max-h[444px] bg-white  mx-auto px-6 py-4 rounded-3xl border border-primary">
+                <div class="max-w-[346px] max-h[444px] bg-white  mx-auto px-6 py-4 rounded-3xl ">
 
                     <div class="flex flex-col">
                         <br />
-                        <h3 class=" mx-auto text-[20px] font-poppins">pictrends</h3>
+                        <h3 class=" mx-auto text-[20px] font-poppins">Snapdrow</h3>
                         @if ($message = Session::get('error'))
                             <div class="flex w-full items-center py-1 px-3  h-5 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800"
                                 role="alert">

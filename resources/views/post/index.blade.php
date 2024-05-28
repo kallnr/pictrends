@@ -27,7 +27,7 @@
                             </a>
                             <div class="flex justify-center items-center ">
                                 <a href="/explore/{{ $item->id }}"><h2
-                                    class="text-[12px] lg:text-slate-900 text-slate-800 font-semibold font-poppins py-2 px-3 bg-slate-400 lg:bg-putih rounded-full">
+                                    class="text-[12px] lg:text-slate-900 text-slate-800 font-semibold font-poppins py-2 px-3 bg-slate-300 lg:bg-putih rounded-full">
                                     {{ $item->judul_kategori }}
                                 </h2></a>
                             </div>

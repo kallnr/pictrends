@@ -11,16 +11,16 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="//unpkg.com/alpinejs" defer></script>
 </head>
-<title>{{ config('app.name')}} | Sign in</title>
+<title>{{ config('app.name')}} | Sign up</title>
 <body class="">
   <div class="my-[150px]">
     <section class="mt-70">
       <form action="/registered" method="POST">
         @csrf
-        <div class="max-w-[346px] max-h[444px] bg-white mx-auto px-6 pt-4 pb-3 rounded-3xl border border-primary">
+        <div class="max-w-[346px] max-h[444px] bg-white mx-auto px-6 pt-4 pb-3 rounded-3xl">
           <div class="flex flex-col">
             <br />
-            <h3 class="mx-auto text-[20px] font-poppins">pictrends</h3>
+            <h3 class="mx-auto text-[20px] font-poppins">Snapdrow</h3>
 
             <input type="text" class="py-1 mt-[50px] px-3 rounded-md text-[16px]text-slate-700 mx-7 border border-gray-400" placeholder="Username" name="name" required />
             <input type="email" class="py-1 mt-[20px] px-3 rounded-md text-[16px]text-slate-700 mx-7 border border-gray-400" placeholder="Email" name="email" required />

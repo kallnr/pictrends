@@ -9,9 +9,11 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AlbumController;
-use App\Http\Controllers\FollowingController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\FollowingController;
+use App\Http\Controllers\SettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,8 @@ Route::post('/logined', [AuthController::class, 'logined']);
 
 Route::middleware('auth')->group(function () {
 
+    Route::get('/file-download/{url}', [DownloadController::class, 'index'])->name('file.download.index');
+
     // Route::get('/coba', [HomeController::class, 'coba']);
     // Route::get('/posting', [HomeController::class, 'post']);
     // Route::post('/save-post', [HomeController::class, 'savePost']);
@@ -59,6 +63,8 @@ Route::middleware('auth')->group(function () {
      Route::get('/explore/{id}', [KategoriController::class, 'show'])->name('explore');
     // Route::get('/explore/{}', [KategoriController::class, 'show']);
     Route::resource('album', AlbumController::class);
+    Route::post('/updatealbum/{id}', [AlbumController::class,'update']);
+    Route::post('/removefromalbum/{id}', [AlbumController::class,'removeFromAlbum'])->name('removealbum');
 
     //following
     // Route::get('profile/following', [FollowingController::class,'following'])->name('profile.following');
@@ -66,10 +72,7 @@ Route::middleware('auth')->group(function () {
     // Route::get('profile/follower', [FollowingController::class,'follower'])->name('profile.follower');
     Route::post('users/{user}/follow',[FollowingController::class,'follow'])->name('users.follow');
     Route::post('users/{user}/unfollow',[FollowingController::class,'unfollow'])->name('users.unfollow');
+    Route::get('/settings/index',[SettingsController::class,'index'])->name('settings.index');
+    Route::post('/updatepassword',[SettingsController::class,'updatepassword'])->name('updatepassword');
 });
-Route::get('/coba', function(){
-    return view('coba');
-});
-Route::get('/', function () {
-    return view('index');
-});
+

@@ -44,23 +44,33 @@ class UserController extends Controller
         //
 
 
-        $filename = pathinfo($request->fileFoto, PATHINFO_FILENAME);
-        $extensi = $request->fileFoto->getClientOriginalExtension();
-        $namafoto = 'profile' . time() . '.' . $extensi;
-        $request->fileFoto->move('profile', $namafoto);
+        if ($request->hasFile('fileFoto')) {
+            $filename = pathinfo($request->file('fileFoto')->getClientOriginalName(), PATHINFO_FILENAME);
+            $extensi = $request->file('fileFoto')->getClientOriginalExtension();
+            $namafoto = 'profile' . time() . '.' . $extensi;
+            $request->file('fileFoto')->move('profile', $namafoto);
 
-        $request->validate([
-            $extensi => 'nullable',
-        ]);
-        $dataupdate = [
-            'profile' => $namafoto,
-            'name' => $request->name,
-            'tgl_lahir' => $request->tgl_lahir,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'bio' => $request->bio
-        ];
+            $dataupdate = [
+                'profile' => $namafoto,
+                'name' => $request->name,
+                'tgl_lahir' => $request->tgl_lahir,
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'bio' => $request->bio,
+                'alamat' => $request->alamat,
+            ];
+        } else {
+            $dataupdate = [
+                'name' => $request->name,
+                'tgl_lahir' => $request->tgl_lahir,
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'bio' => $request->bio,
+                'alamat' => $request->alamat,
+            ];
+        }
+
         User::where('id', auth()->user()->id)->update($dataupdate);
         return redirect('/user');
+
     }
 
     /**

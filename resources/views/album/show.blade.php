@@ -8,12 +8,18 @@
 @section('content')
 
     <section class="lg:mt-[90px] mt-[80px]">
+        <div class="lg:mt-[120px] mt-[89px]  ">
+            <a href="{{ url()->previous() }}">
+                <div class="hidden lg:block lg:mx-auto   px-5 lg:py-7 lg:px-10 lg:max-w-screen-lg  ">
+                    <b><i class="bi bi-arrow-left" style="font-size: 25px; font-weight:900;"></i>
+            </a>
+        </div>
         <div class="max-w-screen-md  flex flex-col lg:flex-row justify-center mx-auto mb-10">
-            <h class="hidden lg:block text-[25px] font-medium"></h>
+            <h class="hidden lg:block text-[25px] font-medium">{{ $album->judul_album }}</h>
         </div>
 
-        <div class=" max-w-screen-md columns-2 gap-2 mx-auto px-2 space-y-2 lg:columns-4 lg:max-w-screen-lg" id="homedata">
-            @foreach ( $dataalbum as $item )
+        <div class=" max-w-screen-md columns-2 gap-2 mx-auto px-2 space-y-2 lg:columns-4 lg:max-w-screen-md" id="homedata">
+            @foreach ($dataalbum as $item)
                 <div class="overflow-hidden">
                     <a href="/post/{{ $item->id }}"><img src="/gallery/{{ $item->url }}" alt=""
                             class="rounded-[20px]"></a>
@@ -26,18 +32,23 @@
                         <div x-show="open" @click.outside=" open = false "
                             class="z-10 absolute text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 ">
                             <ul class="py-2" aria-labelledby="dropdownButton">
-                                <li>
+                                {{-- <li>
                                     <a href="#"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Share</a>
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"></a>
                                 </li>
                                 <li>
                                     <a href="/editakun"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Save
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                                     </a>
-                                </li>
+                                </li> --}}
                                 <li>
-                                    <a href="/logout"
-                                        class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Report</a>
+                                    <form action="/removefromalbum/{{$item->id}}" method="POST">
+                                        @method('delete')
+                                        @csrf
+                                        <button type="submit"
+                                            class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                            onclick="return confirm('Are you sure?')">Delete</button>
+                                    </form>
                                 </li>
                             </ul>
                         </div>

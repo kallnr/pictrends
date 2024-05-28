@@ -62,25 +62,6 @@
                                     <div class="flex flex-col">
                                         <div class="mt-2">
                                             <div>
-                                                <h2 class=" font-bold text-[16px] font-poppins ">Work</h2>
-                                            </div>
-                                            <div class="flex items-center mt-3 ml-1">
-                                                <div
-                                                    class="bg-slate-300 w-7 h-7 rounded-full flex justify-center items-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        fill="currentColor" class="bi bi-briefcase-fill"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5" />
-                                                        <path
-                                                            d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85z" />
-                                                    </svg>
-                                                </div>
-                                                <small class="ml-3 text-[14px] ">Programner</small>
-                                            </div>
-                                        </div>
-                                        <div class="mt-4">
-                                            <div>
                                                 <h2 class=" font-bold text-[16px] font-poppins ">Places lived</h2>
                                             </div>
                                             <div class="flex items-center mt-3 ml-1">
@@ -92,7 +73,7 @@
                                                             d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                                                     </svg>
                                                 </div>
-                                                <small class="ml-3 text-[14px] ">Jakarta</small>
+                                                <small class="ml-3 text-[14px] ">{{$dataprofile->alamat}}</small>
                                             </div>
                                         </div>
                                         <div class="mt-4">
@@ -191,9 +172,8 @@
                             </div>
                         </li>
                         <li>
-                            <a href="/editakun"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Edit
-                                account</a>
+                            <a href="{{route('settings.index')}}"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
                         </li>
                         <li>
                             <a href="/logout"
